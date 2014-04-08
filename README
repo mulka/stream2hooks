@@ -1,0 +1,25 @@
+stream2hooks holds a Twitter streaming API connection and calls a webhook for each tweet.
+
+It is set up like a Heroku python app. For details on that, refer to this article:
+https://devcenter.heroku.com/articles/getting-started-with-python
+
+You'll need to set these environment variables: (which if you use foreman, you can put in a .env file)
+PORT
+TWITTER_CONSUMER_KEY
+TWITTER_CONSUMER_SECRET
+TWITTER_ACCESS_TOKEN
+TWITTER_ACCESS_TOKEN_SECRET
+
+If you already have virtualenv and foreman (included with the Heroku toolbelt) installed,
+these 4 commands should get you started:
+
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+foreman start
+
+In order to start the stream, send a POST request to /fetch where the body is a JSON document containing
+two parameters: stream_url and webhook_url. For example:
+
+{"stream_url": "/1.1/statuses/filter.json?track=%23twitter", "webhook_url": "http://localhost/tweet"}
+
