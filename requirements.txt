@@ -1,0 +1,6 @@
+backports.ssl-match-hostname==3.4.0.2
+httplib2==0.8
+oauth2==1.5.211
+tornado==3.2
+-e git://github.com/mulka/TweetStream.git@db858ef#egg=tweetstream
+wsgiref==0.1.2
